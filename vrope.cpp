@@ -173,9 +173,9 @@ void VRope::createRope(const CCPoint& pointA, const CCPoint& pointB)
 
             float f = spriteSheet->getTextureAtlas()->getTexture()->getPixelsHigh() / CC_CONTENT_SCALE_FACTOR();
             CCRect r = CCRectMake(0, 0, multiplier, f);
-            CCSprite* tmpSprite = CCSprite::spriteWithTexture(spriteSheet->getTexture(), r);
-
-            ccTexParams params = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
+            CCSprite* tmpSprite = CCSprite::createWithTexture(spriteSheet->getTexture(), r);
+            
+            Texture2D::TexParams params = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
             tmpSprite->getTexture()->setTexParameters(&params);
             tmpSprite->setPosition(ccpMidpoint(ccp(point1->x, point1->y), ccp(point2->x, point2->y)));
             tmpSprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(stickAngle));
